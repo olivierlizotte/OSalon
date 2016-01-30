@@ -13,6 +13,9 @@ jQuery(document).ready(function($) {
 var $ = jQuery;
 
 ResizeAll = function(width, height){
+  vidWidth = width;
+  vidHeight = height;
+
     $("#googleMapsFrame").css({
         'width': width,
         'height': height / 2
@@ -34,11 +37,13 @@ ResizeAll = function(width, height){
     });
 };
 
-ResizeAll($(window).width(), $(window).height());
+var vidWidth = $(window).width(), vidHeight = $(window).height();
+ResizeAll(vidWidth, vidHeight);
 
 //$(window).resize(function () {
-//    var vidWidth = $(window).width(), vidHeight = $(window).height();
-//    ResizeAll(vidWidth, vidHeight);
+//    var newVidWidth = $(window).width(), newVidHeight = $(window).height();
+//    if(newVidWidth != vidWidth || newVidHeight != vidHeight)
+//      ResizeAll(newVidWidth, newVidHeight);
 //});
 
 // Navbar fixing
@@ -93,7 +98,7 @@ days: {
     showNextQuote();
 
 })();
-/*
+
 // smooth mouse wheel
 $(function() {
   $('a[href*=#]:not([href=#])').click(function() {
