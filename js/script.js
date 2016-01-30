@@ -36,10 +36,10 @@ ResizeAll = function(width, height){
 
 ResizeAll($(window).width(), $(window).height());
 
-$(window).resize(function () {
-    var vidWidth = $(window).width(), vidHeight = $(window).height();
-    ResizeAll(vidWidth, vidHeight);
-});
+//$(window).resize(function () {
+//    var vidWidth = $(window).width(), vidHeight = $(window).height();
+//    ResizeAll(vidWidth, vidHeight);
+//});
 
 // Navbar fixing
 
