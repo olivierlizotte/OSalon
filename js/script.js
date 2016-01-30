@@ -24,9 +24,9 @@ ResizeAll = function(width, height){
     });
 
     $('#video').videoBG({
-        //mp4:'assets/bg.mp4',
-        //ogv:'assets/bg.ogv',
-        //webm:'assets/bg.webm',
+        mp4:'assets/bg.mp4',
+        ogv:'assets/bg.ogv',
+        webm:'assets/bg.webm',
         poster:'assets/poster.jpg',
         scale:true,
         zIndex:0,
@@ -93,7 +93,7 @@ days: {
     showNextQuote();
 
 })();
-
+/*
 // smooth mouse wheel
 $(function() {
   $('a[href*=#]:not([href=#])').click(function() {
@@ -108,4 +108,4 @@ $(function() {
       }
     }
   });
-});
+});//*/
