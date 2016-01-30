@@ -11,26 +11,34 @@ jQuery(document).ready(function($) {
 // Setting up Video
 
 var $ = jQuery;
-var vidWidth = $(window).width(), vidHeight = $(window).height();
 
-$("#googleMapsFrame").css({
-    'width': vidWidth,
-    'height': vidHeight / 2
-})
+ResizeAll = function(width, height){
+    $("#googleMapsFrame").css({
+        'width': width,
+        'height': height / 2
+    })
 
-$("#video-wrap").css({
-    'width': vidWidth,
-    'height': vidHeight
-});
+    $("#video-wrap").css({
+        'width': width,
+        'height': height
+    });
 
-$('#video').videoBG({
-    mp4:'assets/bg.mp4',
-    ogv:'assets/bg.ogv',
-    webm:'assets/bg.webm',
-    poster:'assets/poster.jpg',
-    scale:true,
-    zIndex:0,
-    height: vidHeight
+    $('#video').videoBG({
+        //mp4:'assets/bg.mp4',
+        //ogv:'assets/bg.ogv',
+        //webm:'assets/bg.webm',
+        poster:'assets/poster.jpg',
+        scale:true,
+        zIndex:0,
+        height: height
+    });
+};
+
+ResizeAll($(window).width(), $(window).height());
+
+$(window).resize(function () {
+    var vidWidth = $(window).width(), vidHeight = $(window).height();
+    ResizeAll(vidWidth, vidHeight);
 });
 
 // Navbar fixing
