@@ -73,6 +73,7 @@
 
     // get the video
     var video = $.fn.videoBG.video(options);
+    //video.prop("controls", false);
 
     // if we are forcing width / height
     if (options.scale) {
