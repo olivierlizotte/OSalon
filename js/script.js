@@ -55,31 +55,6 @@ $("#nav-menu").stick_in_parent()
 
 new WOW().init();
 
-// Count Down Timer
-
-$('.countdown').final_countdown({
-    start : new Date().getTime()/4000,
-    end   : new Date(2016, 01, 26, 9, 0, 0, 0).getTime()/4000,
-    now   : new Date().getTime()/4000,
-    seconds: {
-    borderColor: '#5677fc',
-    borderWidth: '3'
-},
-minutes: {
-    borderColor: '#7e57c2',
-    borderWidth: '3'
-},
-hours: {
-    borderColor: '#4db6ac',
-    borderWidth: '3'
-},
-days: {
-    borderColor: '#d81b60',
-    borderWidth: '3'
-}}, function() {
-});
-
-
 // rotating text
 
 (function() {
