@@ -30,7 +30,7 @@ ResizeAll = function(width, height){
         mp4:'assets/bg.mp4',
         ogv:'assets/bg.ogv',
         webm:'assets/bg.webm',
-        poster:'assets/poster.jpg',
+        /*poster:'assets/poster.jpg',*/
         scale:true,
         zIndex:0,
         height: height
