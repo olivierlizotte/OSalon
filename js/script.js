@@ -1,8 +1,6 @@
 var $ = jQuery;
 
 ResizeAll = function(width, height){
-  vidWidth = width;
-  vidHeight = height;
 
     $("#googleMapsFrame").css({
         'width': width,
@@ -15,6 +13,7 @@ ResizeAll = function(width, height){
     });
 };
 
+var vidWidth, vidHeight;
 jQuery(document).ready(function($) {
 
     $(window).load(function(){
@@ -23,13 +22,23 @@ jQuery(document).ready(function($) {
 
 
     // Setting up Video
-    var vidWidth = $(window).width(), vidHeight = $(window).height();
+    vidWidth = $(window).width();
+    vidHeight = $(window).height();
+    if(vidHeight < 450)
+      vidHeight = 450;
     ResizeAll(vidWidth, vidHeight);
 
     $(window).resize(function () {
         var newVidWidth = $(window).width(), newVidHeight = $(window).height();
-        if(newVidWidth != vidWidth || newVidHeight != vidHeight)
+        if(newVidWidth != vidWidth || newVidHeight != vidHeight){
+
+            vidWidth = width;
+            vidHeight = height;
+
+            if(newVidHeight < 450)
+              newVidHeight = 450;
           ResizeAll(newVidWidth, newVidHeight);
+        }
     });
 
     // Calling Wow
