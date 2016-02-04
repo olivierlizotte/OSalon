@@ -1,17 +1,5 @@
 var $ = jQuery;
 
-jQuery(document).ready(function($) {
-
-    $(window).load(function(){
-        $('#preloader').fadeOut('slow',function(){$(this).remove();});
-    });
-
-});
-
-// Setting up Video
-
-var $ = jQuery;
-
 ResizeAll = function(width, height){
   vidWidth = width;
   vidHeight = height;
@@ -25,7 +13,30 @@ ResizeAll = function(width, height){
         'width': width,
         'height': height
     });
+};
 
+jQuery(document).ready(function($) {
+
+    $(window).load(function(){
+        $('#preloader').fadeOut('slow',function(){$(this).remove();});
+    });
+
+
+    // Setting up Video
+    var vidWidth = $(window).width(), vidHeight = $(window).height();
+    ResizeAll(vidWidth, vidHeight);
+
+    $(window).resize(function () {
+        var newVidWidth = $(window).width(), newVidHeight = $(window).height();
+        if(newVidWidth != vidWidth || newVidHeight != vidHeight)
+          ResizeAll(newVidWidth, newVidHeight);
+    });
+
+    // Calling Wow
+
+    new WOW().init();
+
+    //Start video
     $('#video').videoBG({
         mp4:'assets/bg.mp4',
         ogv:'assets/bg.ogv',
@@ -33,46 +44,35 @@ ResizeAll = function(width, height){
         /*poster:'assets/poster.jpg',*/
         scale:true,
         zIndex:0,
-        height: height
+        height: vidHeight
     });
-};
 
-var vidWidth = $(window).width(), vidHeight = $(window).height();
-ResizeAll(vidWidth, vidHeight);
+    // rotating text
 
-//$(window).resize(function () {
-//    var newVidWidth = $(window).width(), newVidHeight = $(window).height();
-//    if(newVidWidth != vidWidth || newVidHeight != vidHeight)
-//      ResizeAll(newVidWidth, newVidHeight);
-//});
+    (function() {
+
+        var quotes = $(".quotes");
+        var quoteIndex = -1;
+
+        function showNextQuote() {
+            ++quoteIndex;
+            quotes.eq(quoteIndex % quotes.length)
+                .fadeIn(1000)
+                .delay(1000)
+                .fadeOut(1000, showNextQuote);
+        }
+
+        showNextQuote();
+
+    })();
+});
+
 
 // Navbar fixing
 
 $("#nav-menu").stick_in_parent()
 
 
-// Calling Wow
-
-new WOW().init();
-
-// rotating text
-
-(function() {
-
-    var quotes = $(".quotes");
-    var quoteIndex = -1;
-
-    function showNextQuote() {
-        ++quoteIndex;
-        quotes.eq(quoteIndex % quotes.length)
-            .fadeIn(1000)
-            .delay(1000)
-            .fadeOut(1000, showNextQuote);
-    }
-
-    showNextQuote();
-
-})();
 
 // smooth mouse wheel
 $(function() {
